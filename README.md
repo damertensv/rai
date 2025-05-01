@@ -1,2 +1,2 @@
 # dbp
-A (desynchronized) Backpropagation Algorithm
+A (Desynchronized) Backpropagation Algorithm
