@@ -1,2 +1,2 @@
-# dbp
-A (Desynchronized) Backpropagation Algorithm
+# Elastic Delay
+An optimization strategy.
