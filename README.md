@@ -45,3 +45,11 @@ While not included in the formal proposal, additional experiments revealed inter
   2. The decision landscape developed a grid-like pattern with some cells producing NaN predictions.
 
 This suggests that while RAI effectively addresses the vanishing gradient problem with sigmoid activations, it may introduce different stability challenges when used with ReLU in very deep networks. These findings highlight the need for further investigation into the interaction between RAI and different activation functions.
+
+## How To Install
+
+To install all necessary dependencies, clone the repository, and run the following command inside the project's root folder:
+
+```terminal
+conda env create -f env.yml
+```
