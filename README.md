@@ -35,3 +35,13 @@ Traditional backpropagation suffers from destructive nonlinearities as gradients
 2. **Regularization Methods**: What regularization methods exist that could aid RAI to retain standard BP and GD's ability to generalize across regression and classification benchmarks?
 3. **Initialization Sensitivity**: Is RAI more sensitive than standard BP and GD to the choice of initial model parameters?
 4. **Batch Processing Compatibility**: How can we enable RAI to be compatible with batched, mini-batched, and stochastic gradient descent methods?
+
+## Limitations and Additional Findings
+
+While not included in the formal proposal, additional experiments revealed interesting limitations:
+
+- **ReLU Activation Issues**: When using ReLU activations (instead of Sigmoid) in the 101-layer RAI MLP:
+  1. The model showed clear signs of overfitting.
+  2. The decision landscape developed a grid-like pattern with some cells producing NaN predictions.
+
+This suggests that while RAI effectively addresses the vanishing gradient problem with sigmoid activations, it may introduce different stability challenges when used with ReLU in very deep networks. These findings highlight the need for further investigation into the interaction between RAI and different activation functions.
