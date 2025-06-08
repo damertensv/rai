@@ -1,6 +1,6 @@
 from torch.nn import Module, Parameter, MSELoss, Linear, LazyLinear
 from torch import Tensor
-from typing import Any, cast, Self, Literal
+from typing import Any, cast, Self
 from collections.abc import Callable
 from math import inf
 
@@ -55,11 +55,11 @@ def loss(func: Module) -> float | Tensor:
     return gl_loss
 
 
-def wrap(func: Module, include: tuple[type, ...] | None = (Linear, LazyLinear)) -> Module:
+def wrap(func: Module, loss_fn: Module = MSELoss(), period: int | float = inf, include: tuple[type, ...] | None = (Linear, LazyLinear)) -> Module:
     include = include or tuple()
     assert include, f"It makes no sense to wrap {func} with an empty include list."
     for att, obj in func.named_children():
-        setattr(func, att, wrap(obj, include))
+        setattr(func, att, wrap(obj, loss_fn, period, include))
     if isinstance(func, include):
-        return RAI(func)
+        return RAI(func, loss_fn, period)
     return func
