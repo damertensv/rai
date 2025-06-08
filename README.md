@@ -43,6 +43,8 @@ While not included in the formal proposal, additional experiments revealed inter
 - **ReLU Activation Issues**: When using ReLU activations (instead of Sigmoid) in the 101-layer RAI MLP:
   1. The model showed clear signs of overfitting.
   2. The decision landscape developed a grid-like pattern with some cells producing NaN predictions.
+ 
+- **Layer Sensitivity**: Varying the layers that get wrapped by `RAI` reveals that the success or failure of the training process is remarkably sensitive to the choice of layers that get transformed by `RAI`.
 
 This suggests that while RAI effectively addresses the vanishing gradient problem with sigmoid activations, it may introduce different stability challenges when used with ReLU in very deep networks. These findings highlight the need for further investigation into the interaction between RAI and different activation functions.
 
