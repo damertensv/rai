@@ -42,8 +42,8 @@ class RAI(Module):
 def loss(func: Module) -> float | Tensor:
     gl_loss = 0.
     for sub in func.modules():
-        if isinstance(sub, RAI):
-            gl_loss = gl_loss + loss(sub)
+        if isinstance(sub, RAI) and hasattr(sub, "loss"):
+            gl_loss = gl_loss + sub.loss
     return gl_loss
 
 
