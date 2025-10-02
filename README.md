@@ -2,6 +2,7 @@
 
 ## TL;DR
 **Note:** *This is a MSc thesis topic proposal. Any claims made about RAI are hypothetical and based on limited preliminary evidence.*
+
 **Note:** *This idea is closely related to Decoupled Neural Interfaces.
 
 RAI transforms how gradients flow through neural networks by "relaxing" the strict sequential dependencies between layers. In principle, training deep neural networks would become easier, without the need for explicit architectural changes such as skip connections. The transformation can be carried out automatically by a compiler atop existing auto-differentiation frameworks such as PyTorch, JAX, or TensorFlow.
